@@ -43,7 +43,6 @@ public void Event_CsMatchEndRestart(Event event, const char[] name, bool dontBro
 }
 
 public void Event_RoundStart(Event event, const char[] name, bool dontBroadcast) {
-	PrintToChatAll("%s Round %d saved", ChatPrefix1, roundCount);
 	roundCount ++;
 }
 
@@ -158,7 +157,7 @@ public Action VoteOther(int client, int args) {
 	voteRound = (args > 0) ? args-1 : 0;
 	if(voteRound > 0) menu.AddItem("...", "Previous Rounds");
 	for(int i = voteRound; i <= 30; i++) {
-		Format(roundString, sizeof(roundString), "%d", i);
+		Format(roundString, sizeof(roundString), "%d", i+1);
 		Format(roundString2, sizeof(roundString2), "Round %s", roundString);
 		menu.AddItem(roundString, roundString2);
 	}
